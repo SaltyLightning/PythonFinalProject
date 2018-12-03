@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="PythonFinalProject:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/PythonFinalProject_jar</output-path>
+    <root id="archive" name="PythonFinalProject.jar">
+      <element id="module-output" name="PythonFinalProject" />
+    </root>
+  </artifact>
+</component>
