@@ -42,7 +42,8 @@ class Database:
 def print_menu():
 	print("Please select an option: ")
 	print("a) Add an item to the cart\tb) Remove an item from the cart")
-	print("c) Get cart total\tq) Quit")
+	print("c) Get cart total\td) Print database contents");
+	print("\tq) Quit")
 
 name = input("What is your name? ")
 cart1 = Cart(name)
@@ -62,6 +63,9 @@ while option.lower() != "q" :
 		print("_________________________")
 	elif option.lower() == "c":
 		print("a")
+		print("_________________________")
+	elif option.lower() == "d":
+		print("d")
 		print("_________________________")
 	elif option.lower() == "q":
 		pass

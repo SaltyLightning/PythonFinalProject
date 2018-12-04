@@ -1,6 +1,5 @@
 package com.company;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
@@ -34,12 +33,24 @@ public class Main {
                     System.out.println(cart1);
                     System.out.println("_________________________");
                     break;
+                case "d":
+                    PrintDatabase(db);
+                    System.out.println("_________________________");
+                    break;
                 default:
                     System.out.println("Please enter one of the above options");
                     break;
             }
             System.out.println();
             printMenu();
+        }
+    }
+
+    private static void PrintDatabase(Database db) {
+        Enumeration<Item> it = db.getItems().elements();
+        while (it.hasMoreElements()) {
+            Item i = it.nextElement();
+            System.out.println(i);
         }
     }
 
@@ -101,6 +112,7 @@ public class Main {
     public static void printMenu(){
         System.out.println("Please select an option: ");
         System.out.println("a) Add an item to the cart\tb) Modify cart contents");
-        System.out.println("c) Get cart total\tq) Quit");
+        System.out.println("c) Get cart total\td) Print DB contents");
+        System.out.println("q) Quit");
     }
 }
