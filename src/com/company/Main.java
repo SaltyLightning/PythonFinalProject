@@ -14,7 +14,7 @@ public class Main {
         String name = sc.nextLine();
         Cart cart1 = new Cart(name);
         long startTime = System.nanoTime();
-        Database db = new Database("db3.csv");
+        Database db = new Database("db.csv");
         long endTime = System.nanoTime();
 
         long duration = (endTime - startTime);  //divide by 1000000 to get milliseconds.
@@ -44,7 +44,7 @@ public class Main {
                     System.out.println(cart1);
                     System.out.println(String.format("Thank you, %s! Have a nice day!", cart1.getCustomer()));
                     startTime = System.nanoTime();
-                    db.writeDatabase("db2.csv");
+                    db.writeDatabase("db.csv");
                     endTime = System.nanoTime();
                     duration = (endTime - startTime);  //divide by 1000000 to get milliseconds.
                     System.out.println("Write file: " + duration / 1000000 + "ms");

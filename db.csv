@@ -1,44 +1,44 @@
 item_name,quantity,price
-rope,15,1100
 chicken wing,45,350
-steak,15,900
-potato,75,600
-door,1,200000
-bread,100,500
-egg,3000,100
-chicken breast,25,450
-wire,25,450
-pizza,3,1000
-iphone,3,20000
-Cereal,50,1200
-wheat germ, 12,1500
-pretzels, 55, 3200
-granola, 22, 455
-nuts, 123, 444556
-tuna,34, 123
-apples,34 ,55
-cabbage, 34, 556
-soup,34, 1123
-sauerkraut, 3, 4444
-pineapple, 3, 5000
-greens,33,556
-olives,5, 100
-soda, 3, 534
-tea, 231, 443
+tuna,34,123
 bagels,234,544
-Cucumbers,334,553
-carrots,314,555
-Celery,123,445
-Romaine,123,55
+edamame,13,5553
+cucumbers,334,553
+peaches,21,33233
+salsa,2,4
 onions,153,554
-Tangerines,13,5511
-Oranges,423,3466
-Grapes,346,44444
-Kiwi,4,34444
-Berries,21,4414
-Peaches,21,33233
+rope,15,1100
+sauerkraut,3,4444
+pretzels,55,3200
+tangerines,13,5511
+iphone,2,20000
 peas,34,553
-Corn,33,34342
-Edamame,13,5553
-Chickpeas,11,553
-Salsa,2,4
+corn,33,34342
+wire,25,450
+romaine,123,55
+pineapple,3,5000
+pizza,3,1000
+wheat germ,12,1500
+nuts,123,444556
+bread,100,500
+tea,231,443
+granola,22,455
+egg,0,100
+greens,33,556
+celery,123,445
+oranges,423,3466
+berries,21,4414
+grapes,346,44444
+steak,15,900
+soda,3,534
+apples,34,55
+chicken breast,25,450
+cereal,50,1200
+door,1,200000
+potato,75,600
+chickpeas,11,553
+cabbage,34,556
+kiwi,4,34444
+olives,0,100
+carrots,314,555
+soup,34,1123

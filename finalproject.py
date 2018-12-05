@@ -2,7 +2,7 @@ from abc import ABCMeta
 from functools import reduce
 from copy import deepcopy
 import time
-import mysql.connector
+# import mysql.connector
 
 def timeit(method):
     def timed(*args, **kw):
@@ -135,7 +135,7 @@ def ModCart(db, cart):
 
 name = input("What is your name? ")
 cart1 = Cart(name)
-db = Database("db3.csv")
+db = Database("db.csv")
 for key, i in db.items.items():
 	ite = i
 
@@ -159,7 +159,7 @@ while option.lower() != "q" :
 	elif option.lower() == "e":
 		print(cart1)
 		print("\nThank you, {}! Have a nice day!".format(cart1.customer))
-		db.write_db_file("db2.csv")
+		db.write_db_file("db.csv")
 		quit()
 	elif option.lower() == "q":
 		pass
