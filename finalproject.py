@@ -1,6 +1,20 @@
 from abc import ABCMeta
 from functools import reduce
 from copy import deepcopy
+import time
+
+def timeit(method):
+    def timed(*args, **kw):
+        ts = time.time()
+        result = method(*args, **kw)
+        te = time.time()
+        if 'log_time' in kw:
+            name = kw.get('log_name', method.__name__.upper())
+            kw['log_time'][name] = int((te - ts) * 1000)
+        else:
+            print('%r  %2.2f ms' % (method.__name__, (te - ts) * 1000))
+        return result
+    return timed
 
 class Cart:
 		def __init__(self, cust):
@@ -34,6 +48,7 @@ class Item:
 		return "Item Name: {}, Cost: ${:.2f}, Quantity: {}".format(self.name, self.cost/ 100, self.quantity)
 
 class Database:
+	@timeit
 	def __init__(self, file_name):
 		self.items = {}
 		# gen = 
@@ -49,6 +64,8 @@ class Database:
 			fil.readline()	# skip the header line
 			for line in fil:	# open the file and process line by line
 				yield [x.strip().lower() for x in line.split(',')]
+
+	@timeit
 	def write_db_file(self, csv):
 		with open(csv, "w+") as fil:
 			fil.write("item_name,quantity,price\n")
@@ -122,6 +139,7 @@ while option.lower() != "q" :
 		print(cart1)
 		print("\nThank you, {}! Have a nice day!".format(cart1.customer))
 		db.write_db_file("db2.csv")
+		quit()
 	elif option.lower() == "q":
 		pass
 	else:

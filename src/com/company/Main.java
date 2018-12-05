@@ -1,27 +1,24 @@
 package com.company;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
+
+import static java.lang.System.exit;
 
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException {
-        Cart cart1 = new Cart("Xavier");
+    public static void main(String[] args) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("What is your name? ");
+        String name = sc.nextLine();
+        Cart cart1 = new Cart(name);
         Database db = new Database("db.csv");
-//        Enumeration<Item> it = db.getItems().elements();
-//        while (it.hasMoreElements()) {
-//            Item i = it.nextElement();
-//            System.out.println(i);
-//            cart1.AddItem(i);
-//        }
-//        System.out.println(cart1.Total());
         printMenu();
         String input;
-        Scanner sc = new Scanner(System.in);
         while (!(input = sc.nextLine()).toLowerCase().equals("q")){
             switch(input.toLowerCase()){
                 case "a":
-//                    System.out.println("a");
                     AddItem(cart1, db, sc);
                     System.out.println("_________________________");
                     break;
@@ -34,8 +31,14 @@ public class Main {
                     System.out.println("_________________________");
                     break;
                 case "d":
-                    PrintDatabase(db);
+                    System.out.println(db);
                     System.out.println("_________________________");
+                    break;
+                case "e":
+                    System.out.println(cart1);
+                    System.out.println(String.format("Thank you, %s! Have a nice day!", cart1.getCustomer()));
+                    db.writeDatabase("db2.csv");
+                    exit(0);
                     break;
                 default:
                     System.out.println("Please enter one of the above options");
@@ -94,6 +97,7 @@ public class Main {
             System.out.println("Sorry, that item is not in the database.");
         }
         else{
+            System.out.println(i);
             System.out.println("How many would you like buy?: ");
             int iQuan = Integer.parseInt(sc.nextLine());
             while (iQuan > i.getQuantity()){
@@ -101,10 +105,8 @@ public class Main {
                         iQuan, i.getQuantity()));
                 iQuan = Integer.parseInt(sc.nextLine());
             }
-            if (iQuan == i.getQuantity())
-                db.RemoveItem(iName.toLowerCase());
-            else
-                db.getItems().get(iName.toLowerCase()).setQuantity(i.getQuantity() - iQuan);
+
+            db.getItems().get(iName.toLowerCase()).setQuantity(i.getQuantity() - iQuan);
             cart.AddItem(new Item(iName, iQuan, i.getPrice()));
         }
     }
@@ -112,7 +114,7 @@ public class Main {
     public static void printMenu(){
         System.out.println("Please select an option: ");
         System.out.println("a) Add an item to the cart\tb) Modify cart contents");
-        System.out.println("c) Get cart total\td) Print DB contents");
-        System.out.println("q) Quit");
+        System.out.println("c) Get cart total\td) View stock counts");
+        System.out.println("e) Checkout\tq) Quit");
     }
 }
