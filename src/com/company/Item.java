@@ -40,10 +40,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "name='" + name + '\'' +
-                ", quantity=" + quantity +
-                ", price=" + price +
-                '}';
+        return String.format("Item Name: %s, Cost: $%.2f, Quantity: %d", this.name, (float)(this.price/100), this.quantity);
     }
 }

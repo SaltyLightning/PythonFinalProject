@@ -43,8 +43,7 @@ public class Cart {
         for (Item i : this.items) {
             sb.append(i);
         }
-        sb.append("\n Total: $");
-        sb.append(this.Total());
+        sb.append(String.format("\n Total: $%.2f", (float)(this.Total() / 100)));
         return sb.toString();
     }
 }
