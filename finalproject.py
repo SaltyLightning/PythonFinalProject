@@ -2,18 +2,25 @@ from abc import ABCMeta
 from functools import reduce
 from copy import deepcopy
 import time
+<<<<<<< HEAD
 import mysql.connector
+=======
+>>>>>>> e7f822025490c79e9e86735e7349856d1a33bce2
 
 def timeit(method):
     def timed(*args, **kw):
         ts = time.time()
         result = method(*args, **kw)
         te = time.time()
+<<<<<<< HEAD
         if 'log_time' in kw:
             name = kw.get('log_name', method.__name__.upper())
             kw['log_time'][name] = int((te - ts) * 1000)
         else:
             print('%r  %2.2f ms' % (method.__name__, (te - ts) * 1000))
+=======
+        print('%r  %2.2f ms' % (method.__name__, (te - ts) * 1000))
+>>>>>>> e7f822025490c79e9e86735e7349856d1a33bce2
         return result
     return timed
 
@@ -56,6 +63,7 @@ class Database:
 		# gen = 
 		for record in self.read_db_file(file_name):
 			self.items[record[0]] = self.item_from_list(record)
+<<<<<<< HEAD
 		# self.db_connect()
 
 	def db_connect(self):
@@ -66,6 +74,8 @@ class Database:
 		  database="python")
 		print(self.db_connection)
 	
+=======
+>>>>>>> e7f822025490c79e9e86735e7349856d1a33bce2
 
 	def item_from_list(self, li):
 		return Item(li[0], li[2], li[1])
@@ -79,20 +89,26 @@ class Database:
 
 	@timeit
 	def write_db_file(self, csv):
+<<<<<<< HEAD
 		# mycursor = self.db_connection.cursor()
 		# sql = "INSERT INTO shopping (item_name, quantity, price) VALUES (%s, %s, %s)"
 		# val = []
+=======
+>>>>>>> e7f822025490c79e9e86735e7349856d1a33bce2
 		with open(csv, "w+") as fil:
 			fil.write("item_name,quantity,price\n")
 			for k, i in self.items.items():
 				# print(i)
 				fil.write("{},{},{}\n".format(i.name, i.quantity, i.cost))
+<<<<<<< HEAD
 				# val.append((i.name, i.quantity, i.cost))
 		# print(val)
 		# mycursor.executemany(sql, val)
 		# self.db_connection.commit()
 
 				
+=======
+>>>>>>> e7f822025490c79e9e86735e7349856d1a33bce2
 				
 def print_menu():
 	print("Please select an option: ")

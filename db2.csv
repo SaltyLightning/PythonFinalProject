@@ -1,4 +1,5 @@
 item_name,quantity,price
+<<<<<<< HEAD
 chicken wing,45,350
 tuna,34,123
 bagels,234,544
@@ -42,3 +43,16 @@ kiwi,4,34444
 soup,34,1123
 carrots,314,555
 olives,5,100
+=======
+rope,15,1100
+chicken wing,45,350
+steak,15,900
+potato,75,600
+door,1,200000
+bread,100,500
+egg,3000,100
+chicken breast,25,450
+wire,25,450
+pizza,3,1000
+iphone,3,100000
+>>>>>>> e7f822025490c79e9e86735e7349856d1a33bce2

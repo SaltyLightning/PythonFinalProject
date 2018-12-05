@@ -19,7 +19,10 @@ public class Main {
 
         long duration = (endTime - startTime);  //divide by 1000000 to get milliseconds.
         System.out.println("Read file: " + duration / 1000000 + "ms");
+<<<<<<< HEAD
 
+=======
+>>>>>>> e7f822025490c79e9e86735e7349856d1a33bce2
         printMenu();
         String input;
         while (!(input = sc.nextLine()).toLowerCase().equals("q")){

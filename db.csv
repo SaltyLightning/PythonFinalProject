@@ -1,4 +1,5 @@
 item_name,quantity,price
+<<<<<<< HEAD
 rope,15,1100
 chicken wing,45,350
 steak,15,900
@@ -42,3 +43,16 @@ Corn,33,34342
 Edamame,13,5553
 Chickpeas,11,553
 Salsa,2,4
+=======
+Egg,3000,100
+iPhone,3,100000
+Bread,100,500
+Pizza,3,1000
+Rope,15,1100
+Wire,25,450
+Chicken Wing,45,350
+Chicken Breast,25,450
+Steak,15,900
+Potato,75,600
+Door,1,200000
+>>>>>>> e7f822025490c79e9e86735e7349856d1a33bce2
