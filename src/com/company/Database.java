@@ -54,7 +54,7 @@ public class Database {
                 Item i = it.nextElement();
 //                System.out.println(i);
                 br.write(i.getName() + "," + i.getQuantity()
-                        + "," + i.getPrice());
+                        + "," + i.getPrice() + "\n");
             }
         }
         catch (IOException ex){

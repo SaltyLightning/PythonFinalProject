@@ -1,12 +1,12 @@
 item_name,quantity,price
-egg,3000,100
-iphone,3,100000
-bread,100,500
-pizza,3,1000
 rope,15,1100
-wire,25,450
 chicken wing,45,350
-chicken breast,25,450
 steak,15,900
 potato,75,600
 door,1,200000
+bread,100,500
+egg,3000,100
+chicken breast,25,450
+wire,25,450
+pizza,3,1000
+iphone,3,100000
