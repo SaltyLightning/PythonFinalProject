@@ -135,7 +135,7 @@ def ModCart(db, cart):
 
 name = input("What is your name? ")
 cart1 = Cart(name)
-db = Database("db.csv")
+db = Database("db3.csv")
 for key, i in db.items.items():
 	ite = i
 

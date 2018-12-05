@@ -14,7 +14,7 @@ public class Main {
         String name = sc.nextLine();
         Cart cart1 = new Cart(name);
         long startTime = System.nanoTime();
-        Database db = new Database("db.csv");
+        Database db = new Database("db3.csv");
         long endTime = System.nanoTime();
 
         long duration = (endTime - startTime);  //divide by 1000000 to get milliseconds.

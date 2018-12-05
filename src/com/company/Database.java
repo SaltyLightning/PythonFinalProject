@@ -22,7 +22,8 @@ public class Database {
             br.readLine();
             while ((cur = br.readLine()) != null){
                 String split[] = cur.split(",");
-                this.items.put(split[0].toLowerCase(),new Item(split[0].toLowerCase(), Integer.parseInt(split[1].trim()),Integer.parseInt(split[2].trim())));
+                this.items.put(split[0].toLowerCase(),new Item(split[0].toLowerCase(),
+                        Integer.parseInt(split[1].trim()),Integer.parseInt(split[2].trim())));
             }
         }
         catch (IOException ex){
