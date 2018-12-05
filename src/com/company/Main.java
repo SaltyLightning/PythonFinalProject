@@ -7,7 +7,7 @@ import java.util.*;
 import static java.lang.System.exit;
 
 public class Main {
-
+//  Main Function
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         System.out.print("What is your name? ");
@@ -58,7 +58,7 @@ public class Main {
             printMenu();
         }
     }
-
+//  Prints the contents of the database
     private static void PrintDatabase(Database db) {
         Enumeration<Item> it = db.getItems().elements();
         while (it.hasMoreElements()) {
@@ -66,7 +66,7 @@ public class Main {
             System.out.println(i);
         }
     }
-
+//    allows the user to modify cart contents
     private static void ModCart(Cart cart1, Database db, Scanner sc) {
         System.out.println(cart1);
         System.out.println("What item would you like to modify?");
@@ -98,7 +98,7 @@ public class Main {
         }
 
     }
-
+//    allows the user to add to the cart
     private static void AddItem(Cart cart, Database db, Scanner sc) {
         System.out.println("Please enter the name of the object you would like to purchase: ");
         String iName = sc.nextLine();
@@ -120,7 +120,7 @@ public class Main {
             cart.AddItem(new Item(iName, iQuan, i.getPrice()));
         }
     }
-
+//    Prints the menu
     public static void printMenu(){
         System.out.println("Please select an option: ");
         System.out.println("a) Add an item to the cart\tb) Modify cart contents");

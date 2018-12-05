@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// Cart class
 public class Cart {
     private String customer;
     private List<Item> items;
@@ -27,7 +27,7 @@ public class Cart {
     public void AddItem(Item i){
         items.add(i);
     }
-
+//  Generates the cart's total
     public double Total(){
         double t = 0;
         for (Item i : this.items) {

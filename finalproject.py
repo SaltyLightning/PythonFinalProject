@@ -4,6 +4,7 @@ from copy import deepcopy
 import time
 # import mysql.connector
 
+# decorator for timing - from Stack Overflow
 def timeit(method):
     def timed(*args, **kw):
         ts = time.time()
@@ -17,16 +18,22 @@ def timeit(method):
         return result
     return timed
 
+#cart class - acts as a shopping cart
 class Cart:
+		#initializer
 		def __init__(self, cust):
 			self.customer = cust
 			self.items = []
+		# adds item(s) to the cart
 		def add_items(self, its):
 			self.items.append(its)
+		# returns the cart's total
 		def total(self):
 			return reduce(lambda a,b: a+b, map(lambda x: (x.quantity * x.cost), self.items)) if len(self.items) > 0 else 0
+		# removes an item from the cart
 		def remove_item(self, it):
 			self.items.remove(it)
+		# to string function
 		def __str__(self):
 			s = self.customer + "'s cart: \n"
 			for i in self.items:
@@ -37,9 +44,9 @@ class Cart:
 			# 	print(i.quantity, i.cost)
 			# 	t = t + (i.quantity * i.cost)
 			# return t
-
+#class for items
 class Item:
-	"""docstring for Item"""
+	
 	def __init__(self, name, cost, quantity):
 		self.name = name
 		self.cost = int(cost)
@@ -47,8 +54,9 @@ class Item:
 	
 	def __str__(self):
 		return "Item Name: {}, Cost: ${:.2f}, Quantity: {}".format(self.name, self.cost/ 100, self.quantity)
-
+#class for "database"
 class Database:
+	# initializer calls the generator used to read files
 	@timeit
 	def __init__(self, file_name):
 		self.items = {}
@@ -58,6 +66,7 @@ class Database:
 			self.items[record[0]] = self.item_from_list(record)
 		# self.db_connect()
 
+	# deprecated
 	def db_connect(self):
 		self.db_connection =  mysql.connector.connect(
 		  host="localhost",
@@ -66,7 +75,7 @@ class Database:
 		  database="python")
 		print(self.db_connection)
 	
-
+	# creates a item from a list
 	def item_from_list(self, li):
 		return Item(li[0], li[2], li[1])
 
@@ -77,6 +86,7 @@ class Database:
 			for line in fil:	# open the file and process line by line
 				yield [x.strip().lower() for x in line.split(',')]
 
+	#writes "database" back to file
 	@timeit
 	def write_db_file(self, csv):
 		# mycursor = self.db_connection.cursor()
@@ -93,13 +103,14 @@ class Database:
 		# self.db_connection.commit()
 
 				
-				
+#prints the menu
 def print_menu():
 	print("Please select an option: ")
 	print("a) Add an item to the cart\tb) Modify cart contents")
 	print("c) Get cart total\td) Print database contents");
 	print("e) Checkout\tq) Quit")
 
+#allows the user to add to the cart
 def AddItemToCart(db, cart):
 	iName = (input("What item do you want to add to your cart? ")).lower()
 	db_items = db.items
@@ -117,6 +128,7 @@ def AddItemToCart(db, cart):
 		found.quantity = found.quantity - quant
 		db_items[iName] = found
 
+#allows the user to modify cart contents
 def ModCart(db, cart):
 	print(str(cart) + "\n")
 	iName = input("What item would you like to modify? ")
@@ -132,7 +144,7 @@ def ModCart(db, cart):
 		else:
 			item.quantity = item.quantity + quant
 		db.items.get(iName).quantity = db.items.get(iName).quantity + quant
-
+# --MAIN-- #
 name = input("What is your name? ")
 cart1 = Cart(name)
 db = Database("db.csv")

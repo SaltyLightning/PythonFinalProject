@@ -2,7 +2,7 @@ package com.company;
 
 import java.io.*;
 import java.util.*;
-
+// database class
 public class Database {
     private Dictionary<String, Item> items;
 
@@ -13,7 +13,7 @@ public class Database {
     public void setItems(Dictionary<String, Item> items) {
         this.items = items;
     }
-
+//    Constructor. Reads in the database information from the file specified
     public Database(String fileName) throws FileNotFoundException {
         this.items = new Hashtable<>();
         BufferedReader br = new BufferedReader(new FileReader(fileName));
@@ -34,7 +34,7 @@ public class Database {
     public void RemoveItem(String name) throws NullPointerException{
         this.items.remove(name);
     }
-
+// to string method
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -45,7 +45,7 @@ public class Database {
         }
         return sb.toString();
     }
-
+//  Writes the database to the file
     public void writeDatabase(String fileName) throws IOException {
         BufferedWriter br = new BufferedWriter(new FileWriter(fileName));
         try {

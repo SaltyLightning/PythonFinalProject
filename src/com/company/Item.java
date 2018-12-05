@@ -1,5 +1,5 @@
 package com.company;
-
+// Item class
 public class Item {
     private String name;
     private int quantity;
@@ -37,7 +37,7 @@ public class Item {
         this.quantity = quantity;
         this.price = price;
     }
-
+//  To string method
     @Override
     public String toString() {
         return String.format("Item Name: %s, Cost: $%.2f, Quantity: %d", this.name, (float)(this.price/100), this.quantity);
